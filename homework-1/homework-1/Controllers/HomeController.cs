@@ -17,9 +17,10 @@ namespace homework_1.Controllers
         {
             _logger = logger;
         }
-
+         
         public IActionResult Index()
         {
+            ViewBag.message = null;
             return View();
         }
 
@@ -28,10 +29,17 @@ namespace homework_1.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.message = "Hata oldu";
+                //Validasyon kurallarına uymadığı takdirde view'a geri dönüp uyarı mesajlarını göstericek
                 return View();
+
+                //respons nesnesini döndüren kısım
+                //return View(new SignInViewModel{  ResponseModel = new SignInResponseViewModel{ Success = false, Data = null , Error = "Hatalı giriş" } });
             }
+            //Validasyonları sağladığında view'a dönecek ve herhangi bir uyarı göstermeyecek
             return View();
+
+            //respons nesnesini döndüren kısım
+            //return View(new SignInViewModel { ResponseModel = new SignInResponseViewModel { Success = true, Data = "Giriş işlemi başarılı", Error = null } });
         }
 
         public IActionResult Privacy()

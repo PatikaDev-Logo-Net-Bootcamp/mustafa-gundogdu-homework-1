@@ -1,8 +1,9 @@
 ﻿@model SignInViewModel
 
-<p>@ViewBag.message</p>
-<form id="myform" method="post">
 
+<form id="myform" method="post">
+    
+     
     <div class="form-group">
         <label asp-for="FirstName" class="control-label"></label>
         <input asp-for="FirstName" class="form-control" />
@@ -23,7 +24,7 @@
 
     <div class="form-group">
         <label asp-for="Password" class="control-label"></label>
-        <input type="password" class="form-control" />
+        <input asp-for="Password"  type="password" class="form-control" />
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
 
